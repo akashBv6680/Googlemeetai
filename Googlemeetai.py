@@ -40,8 +40,8 @@ if st.button("🚀 Start Listening"):
     chrome_options.add_argument("--disable-dev-shm-usage")
     chrome_options.add_argument("--disable-notifications")
 
-    # ⛔ NOTE: you must login to Google Meet manually once before using automation
-    driver = webdriver.Chrome(ChromeDriverManager().install(), options=chrome_options)
+
+    driver = webdriver.Chrome(service=Service(ChromeDriverManager(version="114.0.5735.90").install()), options=chrome_options)
     driver.get(meet_url)
 
     st.warning("⚠️ Login manually if prompted. Turn on captions in Meet.")
